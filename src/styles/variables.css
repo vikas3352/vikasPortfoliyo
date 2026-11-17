@@ -1,0 +1,39 @@
+:root {
+  /* Color Palette */
+  --bg-primary: #070707;
+  --bg-secondary: #0d0d0d;
+  --bg-card: rgba(22, 22, 22, 0.7);
+  --bg-card-hover: rgba(30, 30, 30, 0.85);
+  --bg-glass: rgba(18, 18, 18, 0.75);
+  --bg-glass-active: rgba(255, 255, 255, 0.96);
+
+  --accent-color: rgb(255, 76, 36);
+  --accent-glow: rgba(255, 76, 36, 0.4);
+  --accent-deep: #e0320b;
+  --accent-amber: #ff9436;
+
+  --text-primary: #ffffff;
+  --text-secondary: #9e9e9e;
+  --text-muted: #5e5e5e;
+  --text-dark: #070707;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.2);
+  --border-active: rgba(255, 76, 36, 0.5);
+
+  /* Typography */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Inter Display', 'Inter', -apple-system, sans-serif;
+  --font-signature: 'Caveat', cursive, sans-serif;
+
+  /* Layout */
+  --max-width: 1400px;
+  --navbar-height: 54px;
+  --radius-pill: 9999px;
+  --radius-card: 16px;
+  --radius-sm: 8px;
+
+  /* Transitions */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+}

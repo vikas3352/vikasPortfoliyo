@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow video captures / private media if any
+Disallow: /*.mov$
+
+# Sitemap location (update with your actual production domain)
+Sitemap: https://vikasjangid.com/sitemap.xml

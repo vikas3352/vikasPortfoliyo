@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Scanner Standee Template Editor — Vikas Jangid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0f0f11;
+      color: #e5e5e7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: #17171a;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 16px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge {
+      background: rgba(211, 160, 177, 0.2);
+      color: #d3a0b1;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .top-actions {
+      display: flex;
+      gap: 12px;
+    }
+    .btn {
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: #d3a0b1;
+      color: #17171a;
+    }
+    .btn-primary:hover {
+      background: #e2b4c3;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.15);
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.15);
+    }
+    .main-workspace {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+    .controls-panel {
+      width: 420px;
+      background: #17171a;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      padding: 24px;
+      overflow-y: auto;
+      height: calc(100vh - 65px);
+    }
+    .control-group {
+      margin-bottom: 22px;
+    }
+    .group-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #9c9ca3;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .field {
+      margin-bottom: 14px;
+    }
+    .field label {
+      display: block;
+      font-size: 12.5px;
+      color: #c7c7cc;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+    .input-text {
+      width: 100%;
+      background: #222226;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      padding: 9px 12px;
+      font-size: 13.5px;
+      color: #ffffff;
+      outline: none;
+      font-family: inherit;
+    }
+    .input-text:focus {
+      border-color: #d3a0b1;
+      box-shadow: 0 0 0 2px rgba(211, 160, 177, 0.25);
+    }
+    .color-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .color-picker-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #222226;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+    .color-picker-wrap input[type="color"] {
+      width: 28px;
+      height: 28px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background: none;
+    }
+    .color-picker-wrap span {
+      font-size: 12px;
+      color: #c7c7cc;
+    }
+    .file-dropzone {
+      border: 1.5px dashed rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 18px;
+      text-align: center;
+      cursor: pointer;
+      background: #1f1f23;
+      transition: all 0.2s ease;
+    }
+    .file-dropzone:hover {
+      border-color: #d3a0b1;
+      background: #242429;
+    }
+    .file-dropzone input {
+      display: none;
+    }
+    .preview-stage {
+      flex: 1;
+      background: #121214;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      overflow: auto;
+      position: relative;
+    }
+    .standee-card {
+      width: 480px;
+      height: 679px; /* Aspect ratio matching 1448x2048 */
+      background: #FAF6F7;
+      border-radius: 12px;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.65), 0 0 0 1px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+    .standee-top-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+    .standee-arch {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 245px;
+      z-index: 2;
+    }
+    .standee-content {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 24px 20px;
+    }
+    .s-logo {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: #787373;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .s-ornament {
+      width: 100%;
+      max-width: 420px;
+      height: 28px;
+      margin-bottom: 22px;
+      object-fit: contain;
+    }
+    .s-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 68px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      color: #262624;
+      margin-bottom: -10px;
+    }
+    .s-script {
+      font-family: 'Caveat', cursive;
+      font-size: 66px;
+      font-weight: 700;
+      line-height: 1;
+      color: #262624;
+      margin-bottom: 4px;
+    }
+    .s-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      color: #262624;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .s-qr-card {
+      width: 216px;
+      height: 216px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 16px 36px rgba(90, 50, 50, 0.22);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: auto;
+    }
+    .s-bracket {
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      border-color: #D3A0B1;
+      border-style: solid;
+      pointer-events: none;
+    }
+    .s-bracket.tl { top: 14px; left: 14px; border-width: 3.5px 0 0 3.5px; }
+    .s-bracket.tr { top: 14px; right: 14px; border-width: 3.5px 3.5px 0 0; }
+    .s-bracket.bl { bottom: 14px; left: 14px; border-width: 0 0 3.5px 3.5px; }
+    .s-bracket.br { bottom: 14px; right: 14px; border-width: 0 3.5px 3.5px 0; }
+    .s-qr-img {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+    }
+    .s-qr-text {
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      color: #262624;
+      text-transform: uppercase;
+    }
+    .s-footer-notice {
+      position: absolute;
+      bottom: 24px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      line-height: 1.6;
+      color: #262624;
+      text-transform: uppercase;
+      z-index: 4;
+    }
+    /* Hidden High-Res Render Canvas */
+    #render-canvas {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-title">
+      <span>Payment Scanner Template</span>
+      <span class="badge">PSD &amp; SVG Template</span>
+    </div>
+    <div class="top-actions">
+      <a href="payment_scanner_template.psd" download="payment_scanner_template.psd" class="btn btn-secondary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Download PSD (Photoshop)
+      </a>
+      <a href="payment_scanner_template.svg" download="payment_scanner_template.svg" class="btn btn-secondary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        Download Vector SVG
+      </a>
+      <button class="btn btn-primary" id="btn-export-png">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+        Export 300 DPI Print PNG
+      </button>
+    </div>
+  </header>
+
+  <div class="main-workspace">
+    <!-- Controls Panel -->
+    <div class="controls-panel">
+
+      <div class="control-group">
+        <div class="group-title">1. Branding &amp; Top Header</div>
+        <div class="field">
+          <label>Brand / Store Name</label>
+          <input type="text" id="input-logo" class="input-text" value="YOUR BRAND / LOGO HERE" />
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="group-title">2. Main Titles</div>
+        <div class="field">
+          <label>Main Title (Serif)</label>
+          <input type="text" id="input-title" class="input-text" value="SCAN" />
+        </div>
+        <div class="field">
+          <label>Script Accent (Calligraphy)</label>
+          <input type="text" id="input-script" class="input-text" value="Here" />
+        </div>
+        <div class="field">
+          <label>Subtitle (Sans-Serif)</label>
+          <input type="text" id="input-subtitle" class="input-text" value="FOR PAYMENT" />
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="group-title">3. QR Code Area</div>
+        <div class="field">
+          <label>Upload Client's QR Code Image</label>
+          <div class="file-dropzone" id="dropzone">
+            <span id="dropzone-text">📁 Click or drop QR Code image here</span>
+            <input type="file" id="input-qr-file" accept="image/*" />
+          </div>
+        </div>
+        <div class="field">
+          <label>Or Placeholder Text</label>
+          <input type="text" id="input-qr-text" class="input-text" value="QR CODE" />
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="group-title">4. Footer Notice</div>
+        <div class="field">
+          <label>Notice Line 1</label>
+          <input type="text" id="input-notice1" class="input-text" value="BE SURE TO CHECK" />
+        </div>
+        <div class="field">
+          <label>Notice Line 2</label>
+          <input type="text" id="input-notice2" class="input-text" value="THE AMOUNT BEFORE PAYING" />
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="group-title">5. Theme Colors</div>
+        <div class="color-row">
+          <div class="field">
+            <label>Top Background</label>
+            <div class="color-picker-wrap">
+              <input type="color" id="color-top-bg" value="#FAF6F7" />
+              <span id="val-top-bg">#FAF6F7</span>
+            </div>
+          </div>
+          <div class="field">
+            <label>Bottom Arch</label>
+            <div class="color-picker-wrap">
+              <input type="color" id="color-arch" value="#E8D5D1" />
+              <span id="val-arch">#E8D5D1</span>
+            </div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="field">
+            <label>Text &amp; Ornament</label>
+            <div class="color-picker-wrap">
+              <input type="color" id="color-text" value="#262624" />
+              <span id="val-text">#262624</span>
+            </div>
+          </div>
+          <div class="field">
+            <label>Corner Brackets</label>
+            <div class="color-picker-wrap">
+              <input type="color" id="color-brackets" value="#D3A0B1" />
+              <span id="val-brackets">#D3A0B1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <button class="btn btn-secondary" id="btn-reset" style="width: 100%; justify-content: center;">
+          🔄 Reset to Original Reference
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Live Preview Stage -->
+    <div class="preview-stage">
+      <div class="standee-card" id="standee-card">
+        
+        <!-- Base Top BG -->
+        <div class="standee-top-bg" id="preview-top-bg" style="background-color: #FAF6F7;"></div>
+
+        <!-- Arch Wave SVG -->
+        <svg class="standee-arch" viewBox="0 0 1448 800" preserveAspectRatio="none">
+          <path id="preview-arch-path" d="M 0 88 Q 724 -64 1448 88 L 1448 800 L 0 800 Z" fill="#E8D5D1" />
+        </svg>
+
+        <!-- Content Overlay -->
+        <div class="standee-content">
+          <div class="s-logo" id="preview-logo">YOUR BRAND / LOGO HERE</div>
+          <img src="payment_scanner_preview.png" class="s-ornament" id="preview-ornament" style="height: 24px; object-fit: cover; object-position: top center;" alt="Divider Ornament" />
+          
+          <div class="s-title" id="preview-title">SCAN</div>
+          <div class="s-script" id="preview-script">Here</div>
+          <div class="s-subtitle" id="preview-subtitle">FOR PAYMENT</div>
+
+          <div class="s-qr-card">
+            <div class="s-bracket tl" id="br-tl"></div>
+            <div class="s-bracket tr" id="br-tr"></div>
+            <div class="s-bracket bl" id="br-bl"></div>
+            <div class="s-bracket br" id="br-br"></div>
+
+            <img id="preview-qr-img" class="s-qr-img" style="display: none;" alt="Uploaded QR" />
+            <div class="s-qr-text" id="preview-qr-text">QR CODE</div>
+          </div>
+
+          <div class="s-footer-notice" id="preview-notice">
+            <div id="preview-notice1">BE SURE TO CHECK</div>
+            <div id="preview-notice2">THE AMOUNT BEFORE PAYING</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <canvas id="render-canvas" width="1448" height="2048"></canvas>
+
+  <script>
+    const elLogo = document.getElementById('input-logo');
+    const elTitle = document.getElementById('input-title');
+    const elScript = document.getElementById('input-script');
+    const elSubtitle = document.getElementById('input-subtitle');
+    const elQrText = document.getElementById('input-qr-text');
+    const elNotice1 = document.getElementById('input-notice1');
+    const elNotice2 = document.getElementById('input-notice2');
+
+    const colTopBg = document.getElementById('color-top-bg');
+    const colArch = document.getElementById('color-arch');
+    const colText = document.getElementById('color-text');
+    const colBrackets = document.getElementById('color-brackets');
+
+    const valTopBg = document.getElementById('val-top-bg');
+    const valArch = document.getElementById('val-arch');
+    const valText = document.getElementById('val-text');
+    const valBrackets = document.getElementById('val-brackets');
+
+    const pLogo = document.getElementById('preview-logo');
+    const pTitle = document.getElementById('preview-title');
+    const pScript = document.getElementById('preview-script');
+    const pSubtitle = document.getElementById('preview-subtitle');
+    const pQrText = document.getElementById('preview-qr-text');
+    const pQrImg = document.getElementById('preview-qr-img');
+    const pNotice1 = document.getElementById('preview-notice1');
+    const pNotice2 = document.getElementById('preview-notice2');
+
+    const pTopBg = document.getElementById('preview-top-bg');
+    const pArch = document.getElementById('preview-arch-path');
+
+    function updatePreview() {
+      pLogo.textContent = elLogo.value;
+      pTitle.textContent = elTitle.value;
+      pScript.textContent = elScript.value;
+      pSubtitle.textContent = elSubtitle.value;
+      pQrText.textContent = elQrText.value;
+      pNotice1.textContent = elNotice1.value;
+      pNotice2.textContent = elNotice2.value;
+
+      pTopBg.style.backgroundColor = colTopBg.value;
+      valTopBg.textContent = colTopBg.value.toUpperCase();
+
+      pArch.setAttribute('fill', colArch.value);
+      valArch.textContent = colArch.value.toUpperCase();
+
+      pTitle.style.color = colText.value;
+      pScript.style.color = colText.value;
+      pSubtitle.style.color = colText.value;
+      pQrText.style.color = colText.value;
+      pNotice1.style.color = colText.value;
+      pNotice2.style.color = colText.value;
+      valText.textContent = colText.value.toUpperCase();
+
+      const bColor = colBrackets.value;
+      document.querySelectorAll('.s-bracket').forEach(b => b.style.borderColor = bColor);
+      valBrackets.textContent = bColor.toUpperCase();
+    }
+
+    [elLogo, elTitle, elScript, elSubtitle, elQrText, elNotice1, elNotice2].forEach(inp => {
+      inp.addEventListener('input', updatePreview);
+    });
+
+    [colTopBg, colArch, colText, colBrackets].forEach(inp => {
+      inp.addEventListener('input', updatePreview);
+    });
+
+    // File upload for QR
+    const dropzone = document.getElementById('dropzone');
+    const fileInput = document.getElementById('input-qr-file');
+    dropzone.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          pQrImg.src = event.target.result;
+          pQrImg.style.display = 'block';
+          pQrText.style.display = 'none';
+          document.getElementById('dropzone-text').textContent = '✅ ' + file.name;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Export 300 DPI Canvas PNG
+    document.getElementById('btn-export-png').addEventListener('click', () => {
+      const canvas = document.getElementById('render-canvas');
+      const ctx = canvas.getContext('2d');
+      const W = 1448;
+      const H = 2048;
+
+      // 1. Draw Top Background
+      ctx.fillStyle = colTopBg.value;
+      ctx.fillRect(0, 0, W, H);
+
+      // 2. Draw Bottom Arch
+      ctx.fillStyle = colArch.value;
+      ctx.beginPath();
+      ctx.moveTo(0, 1336);
+      ctx.quadraticCurveTo(724, 1184, 1448, 1336);
+      ctx.lineTo(1448, 2048);
+      ctx.lineTo(0, 2048);
+      ctx.closePath();
+      ctx.fill();
+
+      // 3. Draw Ornament
+      const ornImg = document.getElementById('preview-ornament');
+      if (ornImg && ornImg.complete) {
+        ctx.drawImage(ornImg, 0, 70, W, 100);
+      }
+
+      // 4. Logo / Brand Text
+      ctx.fillStyle = '#787373';
+      ctx.font = '500 28px Montserrat, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.letterSpacing = '5px';
+      ctx.fillText(elLogo.value, 724, 55);
+
+      // 5. Title: SCAN
+      ctx.fillStyle = colText.value;
+      ctx.font = '700 205px "Playfair Display", serif';
+      ctx.letterSpacing = '4px';
+      ctx.fillText(elTitle.value, 724, 470);
+
+      // 6. Script: Here
+      ctx.font = '700 200px Caveat, cursive';
+      ctx.letterSpacing = '0px';
+      ctx.fillText(elScript.value, 724, 660);
+
+      // 7. Subtitle: FOR PAYMENT
+      ctx.font = '600 38px Montserrat, sans-serif';
+      ctx.letterSpacing = '12px';
+      ctx.fillText(elSubtitle.value, 724, 825);
+
+      // 8. White Card with Shadow
+      const cardX = 396;
+      const cardY = 940;
+      const cardW = 654;
+      const cardH = 648;
+      const radius = 48;
+
+      ctx.save();
+      ctx.shadowColor = 'rgba(90, 50, 50, 0.22)';
+      ctx.shadowBlur = 48;
+      ctx.shadowOffsetY = 24;
+      ctx.fillStyle = '#FFFFFF';
+      roundRect(ctx, cardX, cardY, cardW, cardH, radius);
+      ctx.fill();
+      ctx.restore();
+
+      // 9. Corner Brackets
+      ctx.strokeStyle = colBrackets.value;
+      ctx.lineWidth = 9;
+      ctx.lineCap = 'square';
+      const arm = 110;
+      const inset = 44;
+      const bx1 = cardX + inset;
+      const by1 = cardY + inset;
+      const bx2 = cardX + cardW - inset;
+      const by2 = cardY + cardH - inset;
+
+      // TL
+      ctx.beginPath();
+      ctx.moveTo(bx1 + arm, by1); ctx.lineTo(bx1, by1); ctx.lineTo(bx1, by1 + arm);
+      ctx.stroke();
+      // TR
+      ctx.beginPath();
+      ctx.moveTo(bx2 - arm, by1); ctx.lineTo(bx2, by1); ctx.lineTo(bx2, by1 + arm);
+      ctx.stroke();
+      // BL
+      ctx.beginPath();
+      ctx.moveTo(bx1, by2 - arm); ctx.lineTo(bx1, by2); ctx.lineTo(bx1 + arm, by2);
+      ctx.stroke();
+      // BR
+      ctx.beginPath();
+      ctx.moveTo(bx2 - arm, by2); ctx.lineTo(bx2, by2); ctx.lineTo(bx2, by2 - arm);
+      ctx.stroke();
+
+      // 10. QR Image or Text
+      if (pQrImg.style.display !== 'none' && pQrImg.src) {
+        const qrSize = 420;
+        ctx.drawImage(pQrImg, 724 - qrSize/2, cardY + (cardH - qrSize)/2, qrSize, qrSize);
+      } else {
+        ctx.fillStyle = colText.value;
+        ctx.font = '600 36px Montserrat, sans-serif';
+        ctx.letterSpacing = '8px';
+        ctx.fillText(elQrText.value, 724, cardY + cardH/2 + 12);
+      }
+
+      // 11. Footer Notice
+      ctx.fillStyle = colText.value;
+      ctx.font = '600 30px Montserrat, sans-serif';
+      ctx.letterSpacing = '6px';
+      ctx.fillText(elNotice1.value, 724, 1725);
+      ctx.fillText(elNotice2.value, 724, 1780);
+
+      // Trigger download
+      const link = document.createElement('a');
+      link.download = 'custom_payment_scanner_300dpi.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+
+    function roundRect(ctx, x, y, width, height, radius) {
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + width - radius, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+      ctx.lineTo(x + width, y + height - radius);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+      ctx.lineTo(x + radius, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+      ctx.closePath();
+    }
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      elLogo.value = 'YOUR BRAND / LOGO HERE';
+      elTitle.value = 'SCAN';
+      elScript.value = 'Here';
+      elSubtitle.value = 'FOR PAYMENT';
+      elQrText.value = 'QR CODE';
+      elNotice1.value = 'BE SURE TO CHECK';
+      elNotice2.value = 'THE AMOUNT BEFORE PAYING';
+      colTopBg.value = '#FAF6F7';
+      colArch.value = '#E8D5D1';
+      colText.value = '#262624';
+      colBrackets.value = '#D3A0B1';
+      pQrImg.style.display = 'none';
+      pQrText.style.display = 'block';
+      updatePreview();
+    });
+
+    updatePreview();
+  </script>
+</body>
+</html>
