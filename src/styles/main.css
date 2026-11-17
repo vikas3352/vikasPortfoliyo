@@ -2057,15 +2057,19 @@ body {
     gap: 10px;
   }
   .hero-name-split-wrap {
-    top: clamp(65px, 10vh, 90px);
+    top: clamp(70px, 11vh, 105px);
     padding: 0 clamp(20px, 4vw, 40px);
   }
   .hero-name-text {
-    font-size: clamp(34px, 8.5vw, 68px);
-    letter-spacing: -0.03em;
+    font-size: clamp(42px, 8.8vw, 76px);
+    letter-spacing: -0.035em;
+  }
+  .hero-name-first {
+    text-align: left;
   }
   .hero-name-last {
-    margin-top: clamp(30px, 5vw, 55px);
+    text-align: right;
+    margin-top: clamp(45px, 6.5vw, 85px);
   }
   .hero-name-unified-wrap {
     top: clamp(65px, 12vh, 95px);
@@ -2206,16 +2210,20 @@ body {
     overflow: hidden;
   }
   .hero-name-split-wrap {
-    top: clamp(58px, 9vh, 78px);
+    top: clamp(68px, 10.5vh, 95px);
     padding: 0 clamp(16px, 4.5vw, 28px);
     z-index: 2;
   }
   .hero-name-text {
-    font-size: clamp(30px, 8.8vw, 46px);
-    letter-spacing: -0.025em;
+    font-size: clamp(36px, 10.5vw, 54px);
+    letter-spacing: -0.03em;
+  }
+  .hero-name-first {
+    text-align: left;
   }
   .hero-name-last {
-    margin-top: 0;
+    text-align: right;
+    margin-top: clamp(44px, 10vw, 68px);
   }
   .hero-portrait-stage {
     position: relative;
@@ -2560,15 +2568,19 @@ body {
     padding-bottom: 22px;
   }
   .hero-name-split-wrap {
-    top: 54px;
-    padding: 0 14px;
+    top: clamp(64px, 10vh, 88px);
+    padding: 0 clamp(12px, 3.5vw, 18px);
   }
   .hero-name-text {
-    font-size: clamp(26px, 8.2vw, 36px);
-    letter-spacing: -0.02em;
+    font-size: clamp(32px, 9.8vw, 44px);
+    letter-spacing: -0.03em;
+  }
+  .hero-name-first {
+    text-align: left;
   }
   .hero-name-last {
-    margin-top: 0;
+    text-align: right;
+    margin-top: clamp(38px, 9.5vw, 54px);
   }
   .hero-portrait-stage {
     height: clamp(210px, 38vh, 300px);
@@ -2924,14 +2936,19 @@ body {
     padding-bottom: 20px;
   }
   .hero-name-split-wrap {
-    top: 48px;
-    padding: 0 10px;
+    top: 58px;
+    padding: 0 8px;
   }
   .hero-name-text {
-    font-size: 24px;
+    font-size: clamp(26px, 9.2vw, 32px);
+    letter-spacing: -0.025em;
+  }
+  .hero-name-first {
+    text-align: left;
   }
   .hero-name-last {
-    margin-top: 0;
+    text-align: right;
+    margin-top: clamp(28px, 8.8vw, 38px);
   }
   .hero-portrait-stage {
     height: clamp(180px, 34vh, 240px);
