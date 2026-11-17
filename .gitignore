@@ -26,6 +26,11 @@ pnpm-debug.log*
 ehthumbs.db
 Thumbs.db
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
 # Editor directories
 .vscode/
 .idea/
