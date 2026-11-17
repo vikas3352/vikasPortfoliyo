@@ -2189,7 +2189,7 @@ body {
     flex-shrink: 0;
   }
 
-  /* Hero Mobile Redesign: Clean, readable, balanced & non-overlapping */
+  /* Hero Mobile Redesign: Majestic portrait, balanced typography & seamless flow */
   .hero-section {
     position: relative;
     min-height: 100svh;
@@ -2198,20 +2198,20 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-top: 65px;
-    padding-bottom: 18px;
-    overflow: hidden;
+    padding-top: 75px;
+    padding-bottom: 25px;
+    overflow: visible;
   }
   .hero-glow-layer {
     overflow: hidden;
   }
   .hero-name-split-wrap {
-    top: clamp(48px, 8vh, 65px);
-    padding: 0 clamp(14px, 4vw, 24px);
+    top: clamp(58px, 9vh, 78px);
+    padding: 0 clamp(16px, 4.5vw, 28px);
     z-index: 2;
   }
   .hero-name-text {
-    font-size: clamp(26px, 8vw, 42px);
+    font-size: clamp(30px, 8.8vw, 46px);
     letter-spacing: -0.025em;
   }
   .hero-name-last {
@@ -2220,11 +2220,10 @@ body {
   .hero-portrait-stage {
     position: relative;
     width: 100%;
-    height: clamp(140px, 24vh, 230px);
-    min-height: 0;
-    max-height: 42vw;
-    margin-top: 0;
-    margin-bottom: -16px;
+    height: clamp(240px, 42vh, 360px);
+    min-height: 240px;
+    margin-top: 8px;
+    margin-bottom: -28px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -2236,12 +2235,12 @@ body {
     height: 100%;
     max-height: 100%;
     width: auto;
-    max-width: 82vw;
+    max-width: 88vw;
     object-fit: contain;
     object-position: bottom center;
     transform: translateY(0);
-    -webkit-mask-image: linear-gradient(to bottom, #000000 60%, rgba(0, 0, 0, 0.7) 82%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000000 60%, rgba(0, 0, 0, 0.7) 82%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, #000000 65%, rgba(0, 0, 0, 0.4) 86%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000000 65%, rgba(0, 0, 0, 0.4) 86%, transparent 100%);
   }
   .hero-footer-content {
     position: relative;
@@ -2249,12 +2248,12 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
     padding: 0 clamp(14px, 4vw, 24px);
     background: linear-gradient(
       to bottom,
       transparent 0%,
-      rgba(7, 7, 7, 0.78) 12%,
+      rgba(7, 7, 7, 0.8) 14%,
       rgba(7, 7, 7, 0.98) 35%,
       var(--bg-primary) 100%
     );
@@ -2271,26 +2270,26 @@ body {
     pointer-events: auto;
   }
   .hero-designation {
-    font-size: clamp(19px, 5.2vw, 25px);
+    font-size: clamp(20px, 5.4vw, 26px);
     line-height: 1.22;
   }
   .hero-bio {
-    font-size: clamp(12px, 3.2vw, 13.5px);
-    line-height: 1.5;
-    margin-bottom: 2px;
+    font-size: clamp(12.5px, 3.2vw, 14px);
+    line-height: 1.55;
+    margin-bottom: 4px;
   }
   .hero-cta-group {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
-    gap: 6px;
+    gap: 7px;
   }
   .hero-btn-dark {
     width: 100%;
     justify-content: center;
-    padding: 7px 10px;
+    padding: 8px 10px;
     font-size: clamp(11px, 2.9vw, 12.5px);
-    border-radius: 8px;
+    border-radius: 9px;
     gap: 6px;
   }
   .hero-tech-icon {
@@ -2306,9 +2305,9 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 8px;
-    margin-top: 2px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 10px;
+    margin-top: 4px;
     gap: 10px;
     pointer-events: auto;
   }
@@ -2317,7 +2316,7 @@ body {
     margin-bottom: 0;
   }
   .hero-signature-img {
-    width: clamp(95px, 24vw, 130px);
+    width: clamp(95px, 25vw, 130px);
     height: auto;
   }
   .hero-quote-row {
@@ -2557,54 +2556,54 @@ body {
 
   /* Hero Section Small Mobile */
   .hero-section {
-    padding-top: 58px;
-    padding-bottom: 16px;
+    padding-top: 68px;
+    padding-bottom: 22px;
   }
   .hero-name-split-wrap {
-    top: 48px;
-    padding: 0 12px;
+    top: 54px;
+    padding: 0 14px;
   }
   .hero-name-text {
-    font-size: clamp(22px, 7.8vw, 30px);
+    font-size: clamp(26px, 8.2vw, 36px);
     letter-spacing: -0.02em;
   }
   .hero-name-last {
     margin-top: 0;
   }
   .hero-portrait-stage {
-    height: clamp(125px, 22vh, 180px);
-    min-height: 0;
-    max-height: 38vw;
-    margin-top: 0;
-    margin-bottom: -14px;
+    height: clamp(210px, 38vh, 300px);
+    min-height: 210px;
+    max-height: none;
+    margin-top: 4px;
+    margin-bottom: -24px;
   }
   .hero-footer-content {
-    padding: 0 12px;
-    gap: 9px;
+    padding: 0 14px;
+    gap: 11px;
   }
   .hero-left-block {
     gap: 6px;
   }
   .hero-designation {
-    font-size: clamp(17px, 5.2vw, 21px);
+    font-size: clamp(19px, 5.2vw, 22px);
     line-height: 1.22;
   }
   .hero-bio {
-    font-size: clamp(11.5px, 3.2vw, 12.8px);
-    line-height: 1.46;
-    margin-bottom: 0;
+    font-size: clamp(12px, 3.2vw, 13px);
+    line-height: 1.5;
+    margin-bottom: 2px;
   }
   .hero-cta-group {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
-    gap: 5px;
+    gap: 6px;
   }
   .hero-btn-dark {
     width: 100%;
     justify-content: center;
-    padding: 6px 8px;
-    font-size: clamp(10.5px, 2.9vw, 11.5px);
+    padding: 7px 8px;
+    font-size: 11.5px;
     border-radius: 8px;
     gap: 5px;
   }
@@ -2613,18 +2612,19 @@ body {
     height: 13px;
   }
   .hero-right-block {
-    padding-top: 7px;
-    margin-top: 1px;
+    padding-top: 8px;
+    margin-top: 2px;
+    gap: 8px;
   }
   .hero-signature-img {
-    width: clamp(85px, 25vw, 115px);
+    width: clamp(90px, 25vw, 120px);
   }
   .hero-quote-icon {
-    width: 11px;
-    height: 11px;
+    width: 12px;
+    height: 12px;
   }
   .hero-quote-text {
-    font-size: clamp(10px, 2.6vw, 11.5px);
+    font-size: clamp(10.5px, 2.6vw, 11.8px);
   }
 
   /* Section Padding & Headers */
@@ -2920,69 +2920,69 @@ body {
     font-size: 10px;
   }
   .hero-section {
-    padding-top: 50px;
-    padding-bottom: 12px;
+    padding-top: 60px;
+    padding-bottom: 20px;
   }
   .hero-name-split-wrap {
-    top: 42px;
-    padding: 0 8px;
+    top: 48px;
+    padding: 0 10px;
   }
   .hero-name-text {
-    font-size: 20px;
+    font-size: 24px;
   }
   .hero-name-last {
     margin-top: 0;
   }
   .hero-portrait-stage {
-    height: clamp(105px, 19vh, 135px);
-    min-height: 0;
-    max-height: 35vw;
-    margin-top: 0;
-    margin-bottom: -10px;
+    height: clamp(180px, 34vh, 240px);
+    min-height: 180px;
+    max-height: none;
+    margin-top: 2px;
+    margin-bottom: -20px;
   }
   .hero-footer-content {
-    padding: 0 8px;
-    gap: 7px;
+    padding: 0 10px;
+    gap: 9px;
   }
   .hero-left-block {
     gap: 5px;
   }
   .hero-designation {
-    font-size: 15.5px;
-    line-height: 1.18;
+    font-size: 17px;
+    line-height: 1.2;
   }
   .hero-bio {
-    font-size: 10.8px;
-    line-height: 1.4;
+    font-size: 11.5px;
+    line-height: 1.48;
     margin-bottom: 0;
   }
   .hero-cta-group {
-    gap: 4px;
+    gap: 5px;
   }
   .hero-btn-dark {
-    padding: 5px 4px;
-    font-size: 10px;
-    border-radius: 6px;
+    padding: 6px 6px;
+    font-size: 10.5px;
+    border-radius: 7px;
     gap: 4px;
   }
   .hero-tech-icon {
-    width: 11px;
-    height: 11px;
+    width: 12px;
+    height: 12px;
   }
   .hero-right-block {
-    padding-top: 5px;
-    margin-top: 0;
+    padding-top: 6px;
+    margin-top: 2px;
     gap: 6px;
   }
   .hero-signature-img {
-    width: 78px;
+    width: 85px;
   }
   .hero-quote-icon {
-    width: 10px;
-    height: 10px;
+    width: 11px;
+    height: 11px;
   }
   .hero-quote-text {
-    font-size: 9.5px;
+    font-size: 10px;
   }
   .stat-num {
     font-size: 1.6rem;
@@ -2994,67 +2994,7 @@ body {
 }
 
 /* ==========================================================
-   6. SHORT MOBILE VIEWPORTS (max-height: 620px and max-width: 768px)
-      Guarantees 100% fit on short screens (e.g. 279x559, landscape phones)
-   ========================================================== */
-@media (max-height: 620px) and (max-width: 768px) {
-  .hero-section {
-    padding-top: 48px;
-    padding-bottom: 10px;
-    min-height: 100svh;
-    justify-content: space-between;
-  }
-  .hero-name-split-wrap {
-    top: 40px;
-  }
-  .hero-portrait-stage {
-    height: clamp(95px, 18vh, 130px);
-    max-height: 30vw;
-    margin-top: 0;
-    margin-bottom: -10px;
-  }
-  .hero-footer-content {
-    gap: 6px;
-    padding: 0 10px;
-  }
-  .hero-left-block {
-    gap: 4px;
-  }
-  .hero-designation {
-    font-size: clamp(14.5px, 4.6vw, 17px);
-    line-height: 1.18;
-  }
-  .hero-bio {
-    font-size: clamp(10.2px, 2.9vw, 11.2px);
-    line-height: 1.36;
-    margin-bottom: 0;
-  }
-  .hero-cta-group {
-    gap: 4px;
-  }
-  .hero-btn-dark {
-    padding: 4px 6px;
-    font-size: 10px;
-    border-radius: 6px;
-  }
-  .hero-tech-icon {
-    width: 11px;
-    height: 11px;
-  }
-  .hero-right-block {
-    padding-top: 5px;
-    margin-top: 0;
-  }
-  .hero-signature-img {
-    width: 78px;
-  }
-  .hero-quote-text {
-    font-size: 9.5px;
-  }
-}
-
-/* ==========================================================
-   7. SHORT DESKTOP VIEWPORTS (max-height: 700px and min-width: 769px)
+   6. SHORT DESKTOP VIEWPORTS (max-height: 700px and min-width: 769px)
    ========================================================== */
 @media (max-height: 700px) and (min-width: 769px) {
   .hero-section {
