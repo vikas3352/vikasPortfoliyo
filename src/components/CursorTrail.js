@@ -148,9 +148,9 @@ export function initCursorTrail() {
       const originalHTML = el.innerHTML;
       const isHero = el.closest('#hero') !== null;
 
-      // Lock current height so typing doesn't shift layout
+      // Lock current height for non-hero items so typing doesn't shift layout
       const h = el.offsetHeight;
-      if (h > 0) {
+      if (!isHero && h > 0) {
         el.style.minHeight = `${h}px`;
       }
 
